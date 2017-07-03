@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
+@Fancy
 class MainActivity : AppCompatActivity() {
 
+    @Fancy
     val a: Int = 1
     var b = 2
     val c: Int = 3
@@ -55,6 +57,22 @@ class MainActivity : AppCompatActivity() {
         ::cc.set(222)
         println(::cc.get())
 
+        var prop = Teacher::p
+        println(prop.get(Teacher("hehe")))
+        println(Teacher::p.name)
+
+        var hei = Teacher::height
+        println(hei.get(Teacher("hehe")))
+
+        //println(Teacher::p.get())
+
+        val t = Teacher::class
+        println(t.simpleName)
+        println(t.qualifiedName)
+        println(t.members)
+
+
+
 
     }
 
@@ -102,8 +120,7 @@ class MainActivity : AppCompatActivity() {
     fun Student.eat2(f: String, a: Int) {
         println("eat $f $a g")
     }
-
-
+    
 }
 
 val bb = 2
@@ -111,4 +128,5 @@ var cc = 333
 
 //是否为奇数
 fun isOdd(x: Int): Boolean = x % 2 != 0
+
 
